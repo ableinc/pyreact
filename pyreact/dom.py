@@ -1,6 +1,7 @@
 import sys, os
 from sanic import Sanic
 from pydotenvs import load_env
+from pathlib import Path
 try:
     from pyreact.htmlparser import Parser
     from pyreact.response import html
@@ -11,7 +12,7 @@ except ImportError:
 
 load_env()
 app = Sanic(__name__)
-
+app.static('/static', os.path.abspath(os.curdir + '/public'))
 
 class ReactDOM:
     def __init__(self, router):
@@ -40,10 +41,12 @@ class ReactDOM:
         host, port, env = self._get_environment_variables_()
         app.run(host=f'{host}' if host != None else '127.0.0.1', port=f'{port}' if port != None else '8000', auto_reload=bool(str(env)))
     
-    def render(self, index_file_path):
+    def render(self, index_file_path: str = ''):
         errors = []
         try:
             # self.htmlParser.feed(self.html)  # not required
+            if index_file_path == '':
+                index_file_path = os.path.abspath(os.curdir + '/public/index.html')
             with open(f'{index_file_path}') as html:
                 self.html = html.read()
         except Exception as ex:

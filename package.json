@@ -9,6 +9,7 @@
     },
     "author": "Jaylen A. Douglas | Able Inc.",
     "license": "ISC",
+    "homepage": "http://localhost:8000",
     "dependencies": {
         "sanic": "20.6.3",
         "pydotenvs": "0.1.3",

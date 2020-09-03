@@ -1,0 +1,11 @@
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+#root div.example {
+  text-align: center;
+}
+
+#root p {
+  font-size: 25px;
+}

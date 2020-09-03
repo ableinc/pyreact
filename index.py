@@ -47,17 +47,22 @@ class App(React):
         self.setState({'foo': ''}, self)
         
     def render(self, request):
+        container = []
+        for item in self.state['items']:
+            container.append(f"<p>{item['name']}: {item['cost']}</p>")
         content = f"""
-        <div class="example-class">
+        <div class="example">
             <h1>App Page</h1>
-            <p>{self.state}</p>
+            <p>Store Name: {self.state['shop_name']}</p>
+            <p>Inventory:</p>
+            {container}
         </div>
         """
-        return html(content)
+        return html(content, self.stylesheet)
 
 
 if __name__ == '__main__':
     router = [
         { 'url': '/', 'handler': App()}
     ]
-    ReactDOM(router=router).render('index.html')
+    ReactDOM(router=router).render()
