@@ -32,6 +32,9 @@ You will notice the start command in the package.json points to the index.py fil
 # Environment Variables
 If you'd like your PyReact project to recognize new environment variables please prepend PYREACT_ to your variable names. Note, you will not need to import or install a library to import enviornment variables, PyReact does it under the hood. Just import variables with os.environ.
 
+# Examples
+Just like this repo, examples and documentation are on-going. For the meantime, refer to the /app folder to see how everything works. Feel free to explore the pyreact code itself, if you notice something, make a PR!
+
 # Notes/Changelog
 1. Append user defined react class to index file to render -  Done
 2. Add stylesheet rendering with html - Done
