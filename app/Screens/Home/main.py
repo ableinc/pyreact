@@ -1,18 +1,9 @@
-try:
-    from pyreact.tools import PyNodeDict  # implement later
-    from pyreact.main import React
-    from pyreact.dom import ReactDOM
-    from pyreact.response import html
-except ImportError:
-    from .tools import PyNodeDict
-    from .main import React
-    from .dom import ReactDOM
-    from .response import html
-        
+from pyreact import React, Stylesheet
+from pyreact.responses import html
 
-class App(React):
+class HomePage(React):
     def __init__(self):
-        super(App, self).__init__()
+        super(HomePage, self).__init__()
         self.state = {
             'items': [
                 {
@@ -26,11 +17,11 @@ class App(React):
             ],
             'shop_name': "Greg's Fruit Stand"
             }
-        self.stylesheet = 'style.css'
+        self.stylesheet = Stylesheet('style.css')
 
     def pyDidMount(self):
         print('pyDidMount()')
-    
+
     def pyWillMount(self):
         print('pyWillMount()')
     
@@ -52,7 +43,12 @@ class App(React):
             container.append(f"<p>{item['name']}: {item['cost']}</p>")
         content = f"""
         <div class="example">
-            <h1>App Page</h1>
+            <div class="nav">
+                <ul>
+                    <a href="/about">About Page</a>
+                </ul>
+            </div>
+            <h1>Home Page</h1>
             <p>Store Name: {self.state['shop_name']}</p>
             <p>Inventory:</p>
             {container}
@@ -60,9 +56,3 @@ class App(React):
         """
         return html(content, self.stylesheet)
 
-
-if __name__ == '__main__':
-    router = [
-        { 'url': '/', 'handler': App()}
-    ]
-    ReactDOM(router=router).render()

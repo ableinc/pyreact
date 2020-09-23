@@ -1,11 +1,13 @@
 {
-    "name": "PyReact",
+    "name": "pyreact",
     "version": "0.0.1",
     "description": "A pythonic adaptation of React JS",
     "main": "index.py",
     "scripts": {
-        "start": "python index.py",
-        "test": "echo \"No test available\""
+        "start": "python app/index.py",
+        "test": "echo \"No test available\"",
+        "find-port": "lsof -i tcp:8000",
+        "kill-port": "kill -9"
     },
     "author": "Jaylen A. Douglas | Able Inc.",
     "license": "ISC",
@@ -13,7 +15,8 @@
     "dependencies": {
         "sanic": "20.6.3",
         "pydotenvs": "0.1.3",
-        "beautifulsoup4": "4.9.1"
+        "beautifulsoup4": "4.9.1",
+        "pipreqs": "0.4.10"
     },
     "devDependencies": {}
 }

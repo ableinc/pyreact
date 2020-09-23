@@ -1,8 +1,22 @@
 from sanic.response import HTTPResponse
-from pyreact.response import html
+from .responses import html
+import inspect
+
+
+class Recursion:
+    def __init__(self):
+        self.count = 0
+    
+    def get_count(self):
+        return self.count
+    
+    def set_count(self, value):
+        self.count += value
+
 
 class State:
     def __init__(self):
+        super(State, self).__init__()
         self.state = {}
     
     def _app_lifecycle(self, cls):
@@ -24,6 +38,7 @@ class State:
         return HTTPResponse
     
     def setState(self, state, cls):
+        print('PARENT: ', inspect.stack()[2][3])
         if isinstance(state, list):
             for arg in state:
                 for key, value in arg.items():
@@ -31,6 +46,5 @@ class State:
         else:
             for key, value in state.items():
                 self.state[key] = value
-        print('setState()')
         self._app_lifecycle(cls)
   

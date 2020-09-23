@@ -29,6 +29,20 @@
   </head>
   <body class="body">
     <noscript> You need to enable JavaScript to run this app. </noscript>
+    <!-- <script>
+      localStorage.openpages = Date.now();
+        var onLocalStorageEvent = function(e){
+          if(e.key == "openpages"){
+            // Emit that you're already available.
+            localStorage.page_available = Date.now();
+          }
+          if(e.key == "page_available"){
+            alert("One more page already open");
+            window.location.href = e.path.window.location.href
+          }
+        };
+        window.addEventListener('storage', onLocalStorageEvent, false);
+    </script> -->
     <div id="root"></div>
     <!--
       This HTML file is a template.

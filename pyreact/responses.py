@@ -1,11 +1,11 @@
 from sanic import response
-from pyreact.helper import append_to_root_index
+from .helper import append_to_root_index
 
 def text(content):
     return response.text(content)
 
 
-def html(content, stylesheet: str = ''):
+def html(content, stylesheet):
     return response.html(append_to_root_index(content, stylesheet))
 
 
