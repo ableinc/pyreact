@@ -8,7 +8,6 @@
         "test": "echo \"No test available\"",
         "find-port": "lsof -i tcp:8000",
         "kill-port": "kill -9",
-        "install": "pip install --editable .",
         "build": "python setup.py sdist bdist_wheel",
         "publish": "twine upload dist/*"
     },
