@@ -1,0 +1,15 @@
+{
+  "name": "",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "pyreact": "0.0.3",
+    "pypm": "0.1.5"
+  },
+  "scripts": {
+    "start": "python src/index.py",
+    "build": "echo \"No build available\"",
+    "test": "echo \"No test available\"",
+    "eject": "echo \"No eject available\""
+  }
+}

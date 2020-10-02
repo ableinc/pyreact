@@ -40,7 +40,7 @@ class HomePage(React):
     def render(self, request):
         self.root(self)  # REQUIRED
         container = []
-        self.push()
+        self.push()  # Not recommended, setState outside of render().
         for item in self.state['items']:
             container.append(f"<p>{item['name']}: {item['cost']}</p>")
         content = f"""
