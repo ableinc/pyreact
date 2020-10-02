@@ -1,5 +1,5 @@
 {
-    "name": "pyreact",
+    "name": "pyreact2",
     "version": "0.0.4",
     "description": "A pythonic adaptation of React JS",
     "main": "",
@@ -7,7 +7,10 @@
         "start": "python app/index.py",
         "test": "echo \"No test available\"",
         "find-port": "lsof -i tcp:8000",
-        "kill-port": "kill -9"
+        "kill-port": "kill -9",
+        "install": "pip install --editable .",
+        "build": "python setup.py sdist bdist_wheel",
+        "publish": "twine upload dist/*"
     },
     "author": "Jaylen A. Douglas | Able Inc.",
     "license": "ISC",
