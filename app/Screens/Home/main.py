@@ -38,7 +38,9 @@ class HomePage(React):
         self.setState({'foo': ''}, self)
         
     def render(self, request):
+        self.root(self)  # REQUIRED
         container = []
+        self.push()
         for item in self.state['items']:
             container.append(f"<p>{item['name']}: {item['cost']}</p>")
         content = f"""

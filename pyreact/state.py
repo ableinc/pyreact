@@ -23,22 +23,23 @@ class State:
         try:
             cls.pyWillUpdate()
             cls.pyDidUpdate()
-        except AttributeError as ae:
-            print(ae)
+        except AttributeError:
+            pass
         
         try:
-            html(cls.render(HTTPResponse))
-            cls.pyDidMount()
+            # html(cls.render(HTTPResponse))
             cls.pyWillMount()
+            cls.pyDidMount()
         except AttributeError:
-            print(f'{cls.__name__} does not have a render function.')
+            pass
         
     @staticmethod
     def init():
         return HTTPResponse
     
     def setState(self, state, cls):
-        print('PARENT: ', inspect.stack()[2][3])
+        if 'self.setState' in inspect.stack()[1][4][0]:
+            print('Warning: setState() being invoked in render() is not recommended.')
         if isinstance(state, list):
             for arg in state:
                 for key, value in arg.items():

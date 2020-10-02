@@ -35,13 +35,22 @@ If you'd like your PyReact project to recognize new environment variables please
 # Examples
 Just like this repo, examples and documentation are on-going. For the meantime, refer to the /app folder to see how everything works. Feel free to explore the pyreact code itself, if you notice something, make a PR!
 
-# Notes/Changelog
+# Important Information
+* When you are creating your class views, containing your render function, make sure that
+```python
+self.root(self)
+```
+is the first line in render. This flow is very important. In future updates this will not be needed.
+
+# Changelog
 1. Append user defined react class to index file to render -  Done
 2. Add stylesheet rendering with html - Done
-3. Create a syntax friendly way of generating views with HTML attributes (i.e. not using multiline strings to create view)
+3. Add or create a python syntax friendly way of generating views with HTML attributes (i.e. not using multiline strings to create view)
 4. Find and replace %PUBLIC_URL% in index.html - Done
 5. When user adds list of HTML elements to html content in render, it will be parsed appropriately - Done
-6. Fix recurssion  error  generated when setState() is used in either render() or __init__()
+6. Fix recurssion  error  generated when setState() is used in either render() or __init__() - Done
 7. Be able to render multiple stylesheets for multiple pages - Done
 8. Add event listeners - Done
-9. Stop the browser from reopening the PyReact project homepage after every server refresh. - Disabled
+9. Stop the browser from reopening the PyReact project homepage after every server refresh. - Disabled (Bug)
+10. Add Node dot notation dictionary/Object attribute
+11. When printing in view, display in browser console
